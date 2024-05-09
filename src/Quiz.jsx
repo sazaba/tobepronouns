@@ -179,7 +179,7 @@ const Quiz = () => {
                     )}
                     {!question.audio && !question.video && (
                         <>
-                            <img className='w-20 m-auto' src={questionMark} alt="Question Mark" />
+                            <img className='w-24 m-auto' src={questionMark} alt="Question Mark" />
                             <p className='mb-2'>{question.question}</p>
                         </>
                     )}
