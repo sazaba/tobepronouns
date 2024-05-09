@@ -4,8 +4,8 @@ import questionMark from './assets/question.webp'
 import questionAudio from './assets/audio.webp'
 import questionAudio1 from './assets/julie.mp3'
 import questionAudio2 from './assets/questionAudio2.mp3'
-import questionVideo1 from './assets/questionvideo1.mp4'
 import videosup from './assets/videosup.png'
+import YouTube from 'react-youtube';
 
 const Quiz = () => {
     const navigate = useNavigate();
@@ -103,7 +103,7 @@ const Quiz = () => {
         {
             id: 13,
             question: "What was the child's concern?",
-            video: questionVideo1,
+            video: "cVsyJvxX48A",
             options: ["The house", "The mother", "The game", "The homework"],
             answer: "The game",
             selectedOption: null
@@ -159,21 +159,12 @@ const Quiz = () => {
                     )}
                     {question.video && (
                         <div className="relative">
-                            <video
-                                src={question.video}
-                                preload="auto"
+                            <YouTube
+                                videoId="cVsyJvxX48A" // El ID del video de YouTube
                                 className="mx-auto w-full"
-                                onClick={(e) => e.target.play()}
-                            ></video>
-                            <img
-                                src={videosup}
-                                alt="videosup"
-                                className="absolute top-0 left-0 w-full  object-contain cursor-pointer"
-                                onClick={(e) => {
-                                    e.target.style.display = "none"; // Oculta la imagen al hacer clic en ella
-                                    e.target.previousElementSibling.play(); // Reproduce el video al hacer clic en la imagen
-                                }}
+                                opts={{ width: '100%' }}
                             />
+
                             <p className="mb-2 py-5">{question.question}</p>
                         </div>
                     )}
