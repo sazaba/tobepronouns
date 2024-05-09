@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import questionMark from './assets/question.png'
+import questionMark from './assets/question.webp'
+import questionAudio from './assets/audio.webp'
 import questionAudio1 from './assets/julie.mp3'
 import questionAudio2 from './assets/questionAudio2.mp3'
-import questionAudio from './assets/audio.png'
+import questionVideo1 from './assets/questionvideo1.mp4'
+import videosup from './assets/videosup.png'
+
 const Quiz = () => {
     const navigate = useNavigate();
     const [answers, setAnswers] = useState({});
@@ -91,10 +94,18 @@ const Quiz = () => {
         },
         {
             id: 12,
-            question: "How does the speaker goes to her job?",
+            question: "How does the speaker go to her job?",
             audio: questionAudio2,
             options: ["Walking", "In Bus"],
             answer: "Walking",
+            selectedOption: null
+        },
+        {
+            id: 13,
+            question: "What was the child's concern?",
+            video: questionVideo1,
+            options: ["The house", "The mother", "The game", "The homework"],
+            answer: "The game",
             selectedOption: null
         },
 
@@ -143,42 +154,50 @@ const Quiz = () => {
                         <>
                             <img className='w-20 m-auto' src={questionAudio} alt="Question Audio" />
                             <audio src={question.audio} controls preload="auto" className="mx-auto w-[100%]"></audio>
-                            <p className='mb-2'>{question.question}</p>
-                            <div className='flex space-x-2'>
-                                {question.options.map(option => (
-                                    <button
-                                        key={option}
-                                        className={`py-1 px-4 rounded w-[50%] ${question.selectedOption === option ? 'bg-green-500' : 'bg-slangup hover:bg-white hover:text-slangup'} text-white font-bold`}
-                                        onClick={() => handleAnswer(question.id, option)}
-                                        disabled={submitted}
-                                    >
-                                        {option}
-                                    </button>
-                                ))}
-                            </div>
+                            <p className='mb-2 py-5'>{question.question}</p>
                         </>
                     )}
-                    {!question.audio && (
+                    {question.video && (
+                        <div className="relative">
+                            <video
+                                src={question.video}
+                                preload="auto"
+                                className="mx-auto w-full"
+                                onClick={(e) => e.target.play()}
+                            ></video>
+                            <img
+                                src={videosup}
+                                alt="videosup"
+                                className="absolute top-0 left-0 w-full  object-contain cursor-pointer"
+                                onClick={(e) => {
+                                    e.target.style.display = "none"; // Oculta la imagen al hacer clic en ella
+                                    e.target.previousElementSibling.play(); // Reproduce el video al hacer clic en la imagen
+                                }}
+                            />
+                            <p className="mb-2 py-5">{question.question}</p>
+                        </div>
+                    )}
+                    {!question.audio && !question.video && (
                         <>
-                            <img className='w-20 m-auto' src={questionMark} alt="Question Mark" />
+                            <img className='w-24 m-auto' src={questionMark} alt="Question Mark" />
                             <p className='mb-2'>{question.question}</p>
-                            <div className='flex space-x-2'>
-                                {question.options.map(option => (
-                                    <button
-                                        key={option}
-                                        className={`py-1 px-4 rounded w-[50%] ${question.selectedOption === option ? 'bg-green-500' : 'bg-slangup hover:bg-white hover:text-slangup'} text-white font-bold`}
-                                        onClick={() => handleAnswer(question.id, option)}
-                                        disabled={submitted}
-                                    >
-                                        {option}
-                                    </button>
-                                ))}
-                            </div>
                         </>
                     )}
+                    <div className='flex flex-wrap justify-center'>
+                        {question.options.map(option => (
+                            <button
+                                key={option}
+                                className={`py-1 px-4 rounded ${question.selectedOption === option ? 'bg-green-500' : 'bg-slangup hover:bg-white hover:text-slangup'} text-white font-bold mb-2 mr-2`}
+                                onClick={() => handleAnswer(question.id, option)}
+                                disabled={submitted}
+                                style={{ width: question.options.length > 2 ? '100%' : '50%' }}
+                            >
+                                {option}
+                            </button>
+                        ))}
+                    </div>
                 </div>
             ))}
-
             <button onClick={handleSubmit} className=' bg-lime-400 hover:bg-white hover:text-slangup text-white font-bold py-2 px-4 rounded mx-auto 
                 w-[80%]' disabled={submitted}>
                 Submit
