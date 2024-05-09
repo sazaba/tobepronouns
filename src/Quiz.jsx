@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import questionMark from './assets/question.png'
+import questionMark from './assets/question.webp'
 import questionAudio1 from './assets/julie.mp3'
 import questionAudio2 from './assets/questionAudio2.mp3'
-import questionAudio from './assets/audio.png'
+import questionAudio from './assets/audio.webp'
 const Quiz = () => {
     const navigate = useNavigate();
     const [answers, setAnswers] = useState({});

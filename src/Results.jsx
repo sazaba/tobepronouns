@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation, Link } from 'react-router-dom';
-import Passed from './assets/passed.png';
-import Failed from './assets/failed.png';
+import Passed from './assets/passed.webp';
+import Failed from './assets/failed.webp';
 
 function Results() {
     const location = useLocation();
