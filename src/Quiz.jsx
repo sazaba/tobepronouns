@@ -91,7 +91,7 @@ const Quiz = () => {
         },
         {
             id: 12,
-            question: "How does the speaker goes to her job?",
+            question: "How does the speaker go to her job?",
             audio: questionAudio2,
             options: ["Walking", "In Bus"],
             answer: "Walking",
