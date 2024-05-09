@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import questionMark from './assets/question.png'
+import questionAudio1 from './assets/julie.mp3'
+import questionAudio2 from './assets/questionAudio2.mp3'
+import questionAudio from './assets/audio.png'
 const Quiz = () => {
     const navigate = useNavigate();
     const [answers, setAnswers] = useState({});
@@ -77,7 +80,24 @@ const Quiz = () => {
             options: ["on", "in"],
             answer: "on",
             selectedOption: null
-        }
+        },
+        {
+            id: 11,
+            question: "What is her favorite animal?",
+            audio: questionAudio1,
+            options: ["Dogs", "Cats"],
+            answer: "Cats",
+            selectedOption: null
+        },
+        {
+            id: 12,
+            question: "How does the speaker goes to her job?",
+            audio: questionAudio2,
+            options: ["Walking", "In Bus"],
+            answer: "Walking",
+            selectedOption: null
+        },
+
 
 
         // Puedes agregar más preguntas aquí...
@@ -115,31 +135,52 @@ const Quiz = () => {
 
 
     return (
-        <div className='font-custom flex flex-col items-center space-y-3 mb-3'>
-            <h1 className='font-semibold text-center'>Read each question carefully before answering. Good luck!</h1>
+        <div className='font-custom flex flex-col items-center space-y-3 mb-20'>
+            <h1 className='font-semibold text-center px-5'>Read each question carefully before answering. Good luck!</h1>
             {questions.map(question => (
-                <div className='text-center text-black bg-white  shadow-xl rounded-lg p-10 mx-auto 
-                @screen md:w-[50%]
-                @screen sm:w-[70%]' key={question.id}>
-                    <p className='mb-2'>{question.question}</p>
-                    <div className=' flex space-x-2'>
-                        {question.options.map(option => (
-                            <button
-                                key={option}
-                                className={`py-1 px-4 rounded w-[50%] ${question.selectedOption === option ? 'bg-green-500' : 'bg-slangup hover:bg-white hover:text-slangup'} text-white font-bold`}
-                                onClick={() => handleAnswer(question.id, option)}
-                                disabled={submitted}
-                            >
-                                {option}
-                            </button>
-                        ))}
-                    </div>
-
+                <div className='text-center text-black bg-white shadow-xl rounded-lg p-10 w-[80%]' key={question.id}>
+                    {question.audio && (
+                        <>
+                            <img className='w-20 m-auto' src={questionAudio} alt="Question Audio" />
+                            <audio src={question.audio} controls preload="auto" className="mx-auto w-[100%]"></audio>
+                            <p className='mb-2'>{question.question}</p>
+                            <div className='flex space-x-2'>
+                                {question.options.map(option => (
+                                    <button
+                                        key={option}
+                                        className={`py-1 px-4 rounded w-[50%] ${question.selectedOption === option ? 'bg-green-500' : 'bg-slangup hover:bg-white hover:text-slangup'} text-white font-bold`}
+                                        onClick={() => handleAnswer(question.id, option)}
+                                        disabled={submitted}
+                                    >
+                                        {option}
+                                    </button>
+                                ))}
+                            </div>
+                        </>
+                    )}
+                    {!question.audio && (
+                        <>
+                            <img className='w-20 m-auto' src={questionMark} alt="Question Mark" />
+                            <p className='mb-2'>{question.question}</p>
+                            <div className='flex space-x-2'>
+                                {question.options.map(option => (
+                                    <button
+                                        key={option}
+                                        className={`py-1 px-4 rounded w-[50%] ${question.selectedOption === option ? 'bg-green-500' : 'bg-slangup hover:bg-white hover:text-slangup'} text-white font-bold`}
+                                        onClick={() => handleAnswer(question.id, option)}
+                                        disabled={submitted}
+                                    >
+                                        {option}
+                                    </button>
+                                ))}
+                            </div>
+                        </>
+                    )}
                 </div>
             ))}
-            <button onClick={handleSubmit} className=' bg-slate-800 hover:bg-white hover:text-slangup text-white font-bold py-2 px-4 rounded mx-auto 
-                @screen md:w-[50%]
-                @screen sm:w-[70%]' disabled={submitted}>
+
+            <button onClick={handleSubmit} className=' bg-lime-400 hover:bg-white hover:text-slangup text-white font-bold py-2 px-4 rounded mx-auto 
+                w-[80%]' disabled={submitted}>
                 Submit
             </button>
         </div>
