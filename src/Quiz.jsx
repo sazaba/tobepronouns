@@ -8,6 +8,8 @@ import questionAudio2 from './assets/questionAudio2.mp3'
 import videosup from './assets/videosup.png'
 import YouTube from 'react-youtube';
 import mchoice from './assets/mchoice.png'
+import fblank from './assets/fblank.png'
+import errorid from './assets/errorid.png'
 
 
 
@@ -661,9 +663,19 @@ const Quiz = () => {
         <div className='font-custom flex flex-col items-center space-y-3 mb-20'>
             <h1 className='font-semibold text-center px-5'>Read each question carefully before answering. Good luck!</h1>
             <FloatingTimer timeLeft={timeLeft} formatTime={formatTime} />
-            <div className='bg-slangup rounded-md shadow-lg'>
+            <div className='bg-slangup'>
                 <h2 className='font-semibold text-center px-5 text-xl pt-7 text-white'>Multiple Choice Questions</h2>
                 <img src={mchoice} alt='' />
+            </div>
+
+            <div className='bg-slangup'>
+                <h2 className='font-semibold text-center px-5 text-xl pt-7 text-white'>Fill in the blank</h2>
+                <img src={fblank} alt='' />
+            </div>
+
+            <div className='bg-slangup'>
+                <h2 className='font-semibold text-center px-5 text-xl pt-7 text-white'> Error identification</h2>
+                <img src={errorid} alt='' />
             </div>
 
 
