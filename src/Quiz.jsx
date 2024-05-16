@@ -10,6 +10,9 @@ import YouTube from 'react-youtube';
 import mchoice from './assets/mchoice.png'
 import fblank from './assets/fblank.png'
 import errorid from './assets/errorid.png'
+import completion from './assets/completion.png'
+import reading from './assets/reading.png'
+import acomprehension from "./assets/acomprehension.png"
 
 
 
@@ -661,7 +664,7 @@ const Quiz = () => {
 
     return (
         <div className='font-custom flex flex-col items-center space-y-3 mb-20'>
-            <h1 className='font-semibold text-center px-5'>Read each question carefully before answering. Good luck!</h1>
+            <h1 className='font-semibold text-center px-5 pb-7'>Read each question carefully before answering. Good luck!</h1>
             <FloatingTimer timeLeft={timeLeft} formatTime={formatTime} />
             <div className='bg-slangup'>
                 <h2 className='font-semibold text-center px-5 text-xl pt-7 text-white'>Multiple Choice Questions</h2>
@@ -669,14 +672,30 @@ const Quiz = () => {
             </div>
 
             <div className='bg-slangup'>
-                <h2 className='font-semibold text-center px-5 text-xl pt-7 text-white'>Fill in the blank</h2>
+                <h2 className='font-semibold text-center px-5 text-xl pt-7 text-white'>Fill in the Blank</h2>
                 <img src={fblank} alt='' />
             </div>
 
             <div className='bg-slangup'>
-                <h2 className='font-semibold text-center px-5 text-xl pt-7 text-white'> Error identification</h2>
+                <h2 className='font-semibold text-center px-5 text-xl pt-7 text-white'> Error Identification</h2>
                 <img src={errorid} alt='' />
             </div>
+
+            <div className='bg-slangup'>
+                <h2 className='font-semibold text-center px-5 text-xl pt-7 text-white'> Sentence Completion</h2>
+                <img src={completion} alt='' />
+            </div>
+
+            <div className='bg-slangup'>
+                <h2 className='font-semibold text-center px-5 text-xl pt-7 text-white'> Paragraph Interpretation</h2>
+                <img src={reading} alt='' />
+            </div>
+
+            <div className='bg-slangup'>
+                <h2 className='font-semibold text-center px-5 text-xl pt-7 text-white'> Audio Comprehension</h2>
+                <img src={acomprehension} alt='' />
+            </div>
+
 
 
             {questions.map(question => (
