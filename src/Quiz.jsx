@@ -661,7 +661,7 @@ const Quiz = () => {
         <div className='font-custom flex flex-col items-center space-y-3 mb-20'>
             <h1 className='font-semibold text-center px-5'>Read each question carefully before answering. Good luck!</h1>
             <FloatingTimer timeLeft={timeLeft} formatTime={formatTime} />
-            <div className='bg-slangup rounded-md'>
+            <div className='bg-slangup rounded-md shadow-lg'>
                 <h2 className='font-semibold text-center px-5 text-xl pt-7 text-white'>Multiple Choice Questions</h2>
                 <img src={mchoice} alt='' />
             </div>
