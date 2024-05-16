@@ -145,31 +145,142 @@ const Quiz = () => {
         ],
         errorIdentification: [
             {
-                id: 3,
-                question: " She don't like apples.",
-                options: ["don't", "like", "apples"],
-                answer: "don't",
+                id: 11,
+                question: "She don't like to eat vegetables.",
+                options: ["Don’t", "Like", "Eat"],
+                answer: "Don’t",
+                selectedOption: null
+            },
+            {
+                id: 12,
+                question: "John and his's dog went for a walk yesterday.",
+                options: ["Went", "His's", "Walk"],
+                answer: "His's",
+                selectedOption: null
+            },
+            {
+                id: 13,
+                question: "We go to the beach on every Mondays.",
+                options: ["On every Monday", "We go to", "Mondays"],
+                answer: "On every Monday",
+                selectedOption: null
+            },
+            {
+                id: 14,
+                question: "Can you pass me an pen, please?",
+                options: ["Can", "Pass me", "An"],
+                answer: "An",
+                selectedOption: null
+            },
+            {
+                id: 15,
+                question: "Her are going to the movie tonight.",
+                options: ["Are", "Her", "Going"],
+                answer: "Her",
                 selectedOption: null
             },
         ],
         sentenceCompletion: [
             {
-                id: 4,
-                question: " He is going to the ___.",
-                options: ["park", "market"],
-                answer: "market",
+                id: 16,
+                question: "Sarah ___ (to like) ice cream.",
+                options: ["likes", "liking"],
+                answer: ["likes", "Likes"],
+                selectedOption: null
+            },
+            {
+                id: 17,
+                question: "We ___ (to be) at the park yesterday.",
+                options: ["were", "was"],
+                answer: ["were", "Were"],
+                selectedOption: null
+            },
+            {
+                id: 18,
+                question: "She ___ (to have) a red bike.",
+                options: ["has", "have"],
+                answer: ["has", "Has"],
+                selectedOption: null
+            },
+            {
+                id: 19,
+                question: "They ___ (to go) to school every day.",
+                options: ["go", "goes"],
+                answer: ["go", "Go"],
                 selectedOption: null
             },
         ],
         paragraphInterpretation: [
             {
-                id: 5,
-                question: " The quick brown fox jumps over the lazy dog. What is the dog doing?",
-                options: ["jumping", "lazy"],
-                answer: "lazy",
-                selectedOption: null
+                id: 20,
+                passage: "Samantha and Jack are siblings. Samantha loves to read, so she has a collection of books in her room. Jack, on the other hand, is passionate about music, and he keeps his guitar in his bedroom. Samantha often borrows Jack's headphones to listen to music while she reads, but she always returns them to him afterward. Both of them cherish their hobbies and respect each other's belongings.",
+                questions: [
+                    {
+                        id: 21,
+                        question: "Who has a collection of books in their room?",
+                        options: ["Samantha", "Jack", "Both", "Neither"],
+                        answer: "Samantha",
+                        selectedOption: null
+                    },
+                    {
+                        id: 22,
+                        question: "What does Jack keep in his bedroom?",
+                        options: ["Books", "Headphones", "Guitar", "None of the above"],
+                        answer: "Guitar",
+                        selectedOption: null
+                    },
+                    {
+                        id: 23,
+                        question: "What does Samantha borrow from Jack?",
+                        options: ["Books", "Guitar", "Headphones", "None of the above"],
+                        answer: "Headphones",
+                        selectedOption: null
+                    }
+                ]
             },
+            {
+                id: 24,
+                passage: "Jane is a high school student who loves to read. Every evening, after finishing her homework, she spends at least an hour reading her favorite books. She believes that reading not only helps her relax but also improves her vocabulary and comprehension skills. Jane's favorite genres are fantasy and science fiction, but she also enjoys historical novels from time to time.",
+                questions: [
+                    {
+                        id: 25,
+                        question: "What does Jane do after finishing her homework?",
+                        options: ["Listen to music", "Play video games", "Read her favorite books", "Watch television"],
+                        answer: "Read her favorite books",
+                        selectedOption: null
+                    },
+                    {
+                        id: 26,
+                        question: "Why does Jane believe reading is important?",
+                        options: ["Because it helps her socialize", "Because it allows her to improve her athletic skills", "Because it helps her relax and improves her vocabulary and comprehension skills", "Because it gives her more free time"],
+                        answer: "Because it helps her relax and improves her vocabulary and comprehension skills",
+                        selectedOption: null
+                    },
+                    {
+                        id: 27,
+                        question: "What genres of books does Jane prefer?",
+                        options: ["Mystery and crime novels", "Science fiction and fantasy", "Poetry and drama", "Non-fiction books and autobiographies"],
+                        answer: "Science fiction and fantasy",
+                        selectedOption: null
+                    },
+                    {
+                        id: 28,
+                        question: "What is the main purpose of this paragraph?",
+                        options: ["Introduce a character named Jane", "Describe Jane's daily activities", "Discuss the benefits of reading for Jane", "Explain how Jane spends her free time"],
+                        answer: "Discuss the benefits of reading for Jane",
+                        selectedOption: null
+                    },
+                    {
+                        id: 29,
+                        question: "What does Jane do when she finishes her school duties?",
+                        options: ["Plays sports", "Spends time with friends", "Reads her favorite books", "Helps at home with household chores"],
+                        answer: "Reads her favorite books",
+                        selectedOption: null
+                    }
+                ]
+            }
         ],
+
         audioComprehension: [
             {
                 id: 6,
@@ -219,6 +330,61 @@ const Quiz = () => {
     };
 
 
+    // const renderQuestions = (category, questions) => (
+    //     <div className='category-container'>
+    //         {questions.map(question => (
+    //             <div className='text-center my-20' key={question.id}>
+    //                 {question.audio && (
+    //                     <>
+    //                         <audio src={question.audio} controls preload="auto" className="mx-auto w-[100%]"></audio>
+    //                         <p className='mb-2 py-5'>{question.question}</p>
+    //                     </>
+    //                 )}
+    //                 {question.video && (
+    //                     <div className="relative">
+    //                         <YouTube
+    //                             videoId="cVsyJvxX48A"
+    //                             className="mx-auto w-full"
+    //                             opts={{ width: '100%' }}
+    //                         />
+    //                         <p className="mb-2 py-5">{question.question}</p>
+    //                     </div>
+    //                 )}
+    //                 {!question.audio && !question.video && (
+    //                     <>
+    //                         <img className='w-24 m-auto' src={questionMark} alt="Question Mark" />
+    //                         <p className=' mb-2 px-3'>{question.question}</p>
+    //                     </>
+    //                 )}
+    //                 <div className='flex flex-wrap justify-center'>
+    //                     {category === 'fillInTheBlank' || category === 'sentenceCompletion' ? (
+    //                         <input
+    //                             type="text"
+    //                             className='py-1 px-4 rounded border-2 border-gray-300 mb-2 mr-2'
+    //                             value={question.selectedOption || ''}
+    //                             onChange={(e) => handleInputChange(category, question.id, e)}
+    //                             disabled={submitted}
+    //                         />
+    //                     ) : (
+    //                         question.options.map(option => (
+    //                             <button
+    //                                 key={option}
+    //                                 className={`py-1 px-5 rounded ${question.selectedOption === option ? 'bg-green-500' : 'bg-slangup hover:bg-white hover:text-slangup'} text-white font-bold mb-2 mr-2`}
+    //                                 onClick={() => handleAnswer(category, question.id, option)}
+    //                                 disabled={submitted}
+    //                                 style={{ width: question.options.length > 2 ? '80%' : '50%' }}
+    //                             >
+    //                                 {option}
+    //                             </button>
+    //                         ))
+    //                     )}
+    //                 </div>
+    //             </div>
+    //         ))}
+    //     </div>
+    // );
+
+
     const renderQuestions = (category, questions) => (
         <div className='category-container'>
             {questions.map(question => (
@@ -245,34 +411,66 @@ const Quiz = () => {
                             <p className=' mb-2 px-3'>{question.question}</p>
                         </>
                     )}
-                    <div className='flex flex-wrap justify-center'>
-                        {category === 'fillInTheBlank' ? (
-                            <input
-                                type="text"
-                                className='py-1 px-4 rounded border-2 border-gray-300 mb-2 mr-2'
-                                value={question.selectedOption || ''}
-                                onChange={(e) => handleInputChange(category, question.id, e)}
-                                disabled={submitted}
-                            />
-                        ) : (
-                            question.options.map(option => (
-                                <button
-                                    key={option}
-                                    className={`py-1 px-5 rounded ${question.selectedOption === option ? 'bg-green-500' : 'bg-slangup hover:bg-white hover:text-slangup'} text-white font-bold mb-2 mr-2`}
-                                    onClick={() => handleAnswer(category, question.id, option)}
+                    {category === 'paragraphInterpretation' && (
+                        <p className='px-7'>{question.passage}</p>
+                    )}
+                    {!question.questions && (
+                        <div className='flex flex-wrap justify-center'>
+                            {category === 'fillInTheBlank' || category === 'sentenceCompletion' ? (
+                                <input
+                                    type="text"
+                                    className='py-1 px-4 rounded border-2 border-gray-300 mb-2 mr-2'
+                                    value={question.selectedOption || ''}
+                                    onChange={(e) => handleInputChange(category, question.id, e)}
                                     disabled={submitted}
-                                    style={{ width: question.options.length > 2 ? '80%' : '50%' }}
-                                >
-                                    {option}
-                                </button>
-                            ))
-                        )}
-                    </div>
+                                />
+                            ) : (
+                                question.options.map(option => (
+                                    <button
+                                        key={option}
+                                        className={`py-1 px-5 rounded ${question.selectedOption === option ? 'bg-green-500' : 'bg-slangup hover:bg-white hover:text-slangup'} text-white font-bold mb-2 mr-2`}
+                                        onClick={() => handleAnswer(category, question.id, option)}
+                                        disabled={submitted}
+                                        style={{ width: question.options.length > 2 ? '80%' : '50%' }}
+                                    >
+                                        {option}
+                                    </button>
+                                ))
+                            )}
+                        </div>
+                    )}
+                    {question.questions && question.questions.map(subQuestion => (
+                        <div className='my-10' key={subQuestion.id}>
+                            <p className='px-7'>{subQuestion.question}</p>
+                            <div className='flex flex-wrap justify-center'>
+                                {category === 'fillInTheBlank' || category === 'sentenceCompletion' ? (
+                                    <input
+                                        type="text"
+                                        className='py-1 px-4 rounded border-2 border-gray-300 mb-2 mr-2'
+                                        value={subQuestion.selectedOption || ''}
+                                        onChange={(e) => handleInputChange(category, subQuestion.id, e)}
+                                        disabled={submitted}
+                                    />
+                                ) : (
+                                    subQuestion.options.map(option => (
+                                        <button
+                                            key={option}
+                                            className={`py-1 px-5 rounded ${subQuestion.selectedOption === option ? 'bg-green-500' : 'bg-slangup hover:bg-white hover:text-slangup'} text-white font-bold mb-2 mr-2`}
+                                            onClick={() => handleAnswer(category, subQuestion.id, option)}
+                                            disabled={submitted}
+                                            style={{ width: subQuestion.options.length > 2 ? '80%' : '50%' }}
+                                        >
+                                            {option}
+                                        </button>
+                                    ))
+                                )}
+                            </div>
+                        </div>
+                    ))}
                 </div>
             ))}
         </div>
     );
-
 
 
     return (

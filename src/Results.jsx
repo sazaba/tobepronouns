@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import Passed from './assets/passed.webp';
 import Failed from './assets/failed.webp';
@@ -14,17 +14,19 @@ function Results() {
 
     if (percentage >= 70) {
         resultTitle = "Congratulations, you passed this test!";
-        imageSrc = Passed; // Asignamos la variable de la imagen a imageSrc
-        // bgColorClass = "bg-slangup";
+        imageSrc = Passed;
     } else {
         resultTitle = "You did not pass this test.";
-        imageSrc = Failed; // Asignamos la variable de la imagen a imageSrc
-        // bgColorClass = "bg-red-500";
+        imageSrc = Failed;
     }
+
+    useEffect(() => {
+        window.scrollTo(0, 0); // Scroll hacia arriba al montar el componente
+    }, []);
 
     return (
         <div className={`relative ${bgColorClass} flex flex-col items-center text-center font-custom `}>
-            <img className='w-40' src={imageSrc} alt='' /> {/* Utilizamos la variable imageSrc */}
+            <img className='w-40' src={imageSrc} alt='' />
 
             <div className="relative z-10 space-y-1">
                 <h2 className='font-bold'>{resultTitle}</h2>
