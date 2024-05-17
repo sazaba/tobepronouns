@@ -436,19 +436,19 @@ const Quiz = () => {
             {renderQuestions("multipleChoice", questions.multipleChoice)}
 
             <div className='bg-slangup w-[100%] flex flex-col items-center'>
-                <h2 className='font-semibold text-center px-5 text-xl pt-7 text-white'>Fill in the Blank</h2>
+                <h2 className='font-semibold text-center px-5 text-xl pt-7 text-white'>Fill In The Blank</h2>
                 <img className='w-[150px]' src={fblank} alt='' />
             </div>
             {renderQuestions("fillInTheBlank", questions.fillInTheBlank)}
 
             <div className='bg-slangup w-[100%] flex flex-col items-center'>
-                <h2 className='font-semibold text-center px-5 text-xl pt-7 text-white'>Error Identification</h2>
+                <h2 className='font-semibold text-center px-5 text-xl pt-7 text-white'>What's The Error?</h2>
                 <img className='w-[150px]' src={errorid} alt='' />
             </div>
             {renderQuestions("errorIdentification", questions.errorIdentification)}
 
             <div className='bg-slangup w-[100%] flex flex-col items-center'>
-                <h2 className='font-semibold text-center px-5 text-xl pt-7 text-white'>Sentence Completion</h2>
+                <h2 className='font-semibold text-center px-5 text-xl pt-7 text-white'>Complete The Sentence</h2>
                 <img className='w-[150px]' src={completion} alt='' />
             </div>
             {renderQuestions("sentenceCompletion", questions.sentenceCompletion)}
