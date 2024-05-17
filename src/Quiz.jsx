@@ -5,12 +5,13 @@ import FloatingTimer from './FloatingTimer';
 import questionMark from './assets/question.webp';
 import questionAudio from './assets/audio.webp';
 import YouTube from 'react-youtube';
-import mchoice from './assets/mchoice.png';
-import fblank from './assets/fblank.png';
-import errorid from './assets/errorid.png';
-import completion from './assets/completion.png';
-import reading from './assets/reading.png';
-import acomprehension from './assets/acomprehension.png';
+import mchoice from './assets/mchoice.webp';
+import fblank from './assets/fblank.webp';
+import errorid from './assets/errorid.webp';
+import completion from './assets/completion.webp';
+import reading from './assets/reading.webp';
+import acomprehension from './assets/acomprehension.webp';
+import julie from './assets/julie.mp3'
 
 const Quiz = () => {
     const navigate = useNavigate();
@@ -283,7 +284,7 @@ const Quiz = () => {
                 options: ["Blue", "Green"],
                 answer: "Blue",
                 selectedOption: null,
-                audio: 'path/to/audio.mp3'
+                audio: julie
             },
         ],
     });
@@ -369,7 +370,7 @@ const Quiz = () => {
                             {category === 'fillInTheBlank' || category === 'sentenceCompletion' ? (
                                 <input
                                     type="text"
-                                    className='py-1 px-4 rounded border-2 border-gray-300 mb-2 mr-2'
+                                    className='py-2 px-4 border-b-2 border-slangup focus:outline-none focus:border-b-2 focus:border-slangup'
                                     value={question.selectedOption || ''}
                                     onChange={(e) => handleInputChange(category, question.id, e)}
                                     disabled={submitted}
@@ -428,54 +429,54 @@ const Quiz = () => {
             <h1 className='font-semibold text-center px-5 pb-7'>Read each question carefully before answering. Good luck!</h1>
             <FloatingTimer timeLeft={timeLeft} formatTime={formatTime} />
 
-            <div className='bg-slangup'>
+            <div className='bg-slangup w-[100%] flex flex-col items-center'>
                 <h2 className='font-semibold text-center px-5 text-xl pt-7 text-white'>Multiple Choice Questions</h2>
-                <img src={mchoice} alt='' />
+                <img className='w-[150px]' src={mchoice} alt='' />
             </div>
             {renderQuestions("multipleChoice", questions.multipleChoice)}
 
-            <div className='bg-slangup'>
+            <div className='bg-slangup w-[100%] flex flex-col items-center'>
                 <h2 className='font-semibold text-center px-5 text-xl pt-7 text-white'>Fill in the Blank</h2>
-                <img src={fblank} alt='' />
+                <img className='w-[150px]' src={fblank} alt='' />
             </div>
             {renderQuestions("fillInTheBlank", questions.fillInTheBlank)}
 
-            <div className='bg-slangup'>
+            <div className='bg-slangup w-[100%] flex flex-col items-center'>
                 <h2 className='font-semibold text-center px-5 text-xl pt-7 text-white'>Error Identification</h2>
-                <img src={errorid} alt='' />
+                <img className='w-[150px]' src={errorid} alt='' />
             </div>
             {renderQuestions("errorIdentification", questions.errorIdentification)}
 
-            <div className='bg-slangup'>
+            <div className='bg-slangup w-[100%] flex flex-col items-center'>
                 <h2 className='font-semibold text-center px-5 text-xl pt-7 text-white'>Sentence Completion</h2>
-                <img src={completion} alt='' />
+                <img className='w-[150px]' src={completion} alt='' />
             </div>
             {renderQuestions("sentenceCompletion", questions.sentenceCompletion)}
 
-            <div className='bg-slangup'>
+            <div className='bg-slangup w-[100%] flex flex-col items-center'>
                 <h2 className='font-semibold text-center px-5 text-xl pt-7 text-white'>Paragraph Interpretation</h2>
-                <img src={reading} alt='' />
+                <img className='w-[150px]' src={reading} alt='' />
             </div>
-            <div className='pt-7'>
-                <p className='mb-2 px-5 text-justify'>Samantha and Jack are siblings. Samantha loves to read, so she has a collection of books in her room. Jack, on the other hand, is passionate about music, and he keeps his guitar in his bedroom. Samantha often borrows Jack's headphones to listen to music while she reads, but she always returns them to him afterward. Both of them cherish their hobbies and respect each other's belongings.</p>
+            <div className='pt-7 '>
+                <p className='mb-2 px-5 text-justify font-medium'>Samantha and Jack are siblings. Samantha loves to read, so she has a collection of books in her room. Jack, on the other hand, is passionate about music, and he keeps his guitar in his bedroom. Samantha often borrows Jack's headphones to listen to music while she reads, but she always returns them to him afterward. Both of them cherish their hobbies and respect each other's belongings.</p>
             </div>
             {renderQuestions("paragraphInterpretation", questions.paragraphInterpretation)}
 
 
             <div>
-                <p className='mb-2 px-5 text-justify'>Jane is a high school student who loves to read. Every evening, after finishing her homework, she spends at least an hour reading her favorite books. She believes that reading not only helps her relax but also improves her vocabulary and comprehension skills. Jane's favorite genres are fantasy and science fiction, but she also enjoys historical novels from time to time."</p>
+                <p className='mb-2 px-5 text-justify font-medium'>Jane is a high school student who loves to read. Every evening, after finishing her homework, she spends at least an hour reading her favorite books. She believes that reading not only helps her relax but also improves her vocabulary and comprehension skills. Jane's favorite genres are fantasy and science fiction, but she also enjoys historical novels from time to time."</p>
             </div>
             {renderQuestions("paragraphInterpretation2", questions.paragraphInterpretation2)}
 
 
 
-            <div className='bg-slangup'>
+            <div className='bg-slangup w-[100%] flex flex-col items-center'>
                 <h2 className='font-semibold text-center px-5 text-xl pt-7 text-white'>Audio Comprehension</h2>
-                <img src={acomprehension} alt='' />
+                <img className='w-[150px]' src={acomprehension} alt='' />
             </div>
             {renderQuestions("audioComprehension", questions.audioComprehension)}
 
-            <button onClick={handleSubmit} className=' bg-lime-400 hover:bg-white hover:text-slangup text-white font-bold py-2 px-4 rounded mx-auto 
+            <button onClick={handleSubmit} className=' bg-green-500 hover:bg-white hover:text-slangup text-white font-bold py-2 px-4 rounded mx-auto 
                 w-[80%]' disabled={submitted}>
                 Submit
             </button>
