@@ -212,78 +212,73 @@ const Quiz = () => {
         ],
         paragraphInterpretation: [
             {
-                id: 20,
-                passage: "Samantha and Jack are siblings. Samantha loves to read, so she has a collection of books in her room. Jack, on the other hand, is passionate about music, and he keeps his guitar in his bedroom. Samantha often borrows Jack's headphones to listen to music while she reads, but she always returns them to him afterward. Both of them cherish their hobbies and respect each other's belongings.",
-                questions: [
-                    {
-                        id: 21,
-                        question: "Who has a collection of books in their room?",
-                        options: ["Samantha", "Jack", "Both", "Neither"],
-                        answer: "Samantha",
-                        selectedOption: null
-                    },
-                    {
-                        id: 22,
-                        question: "What does Jack keep in his bedroom?",
-                        options: ["Books", "Headphones", "Guitar", "None of the above"],
-                        answer: "Guitar",
-                        selectedOption: null
-                    },
-                    {
-                        id: 23,
-                        question: "What does Samantha borrow from Jack?",
-                        options: ["Books", "Guitar", "Headphones", "None of the above"],
-                        answer: "Headphones",
-                        selectedOption: null
-                    }
-                ]
+                id: 21,
+                question: "Who has a collection of books in their room?",
+                options: ["Samantha", "Jack", "Both", "Neither"],
+                answer: "Samantha",
+                selectedOption: null
             },
             {
-                id: 24,
-                passage: "Jane is a high school student who loves to read. Every evening, after finishing her homework, she spends at least an hour reading her favorite books. She believes that reading not only helps her relax but also improves her vocabulary and comprehension skills. Jane's favorite genres are fantasy and science fiction, but she also enjoys historical novels from time to time.",
-                questions: [
-                    {
-                        id: 25,
-                        question: "What does Jane do after finishing her homework?",
-                        options: ["Listen to music", "Play video games", "Read her favorite books", "Watch television"],
-                        answer: "Read her favorite books",
-                        selectedOption: null
-                    },
-                    {
-                        id: 26,
-                        question: "Why does Jane believe reading is important?",
-                        options: ["Because it helps her socialize", "Because it allows her to improve her athletic skills", "Because it helps her relax and improves her vocabulary and comprehension skills", "Because it gives her more free time"],
-                        answer: "Because it helps her relax and improves her vocabulary and comprehension skills",
-                        selectedOption: null
-                    },
-                    {
-                        id: 27,
-                        question: "What genres of books does Jane prefer?",
-                        options: ["Mystery and crime novels", "Science fiction and fantasy", "Poetry and drama", "Non-fiction books and autobiographies"],
-                        answer: "Science fiction and fantasy",
-                        selectedOption: null
-                    },
-                    {
-                        id: 28,
-                        question: "What is the main purpose of this paragraph?",
-                        options: ["Introduce a character named Jane", "Describe Jane's daily activities", "Discuss the benefits of reading for Jane", "Explain how Jane spends her free time"],
-                        answer: "Discuss the benefits of reading for Jane",
-                        selectedOption: null
-                    },
-                    {
-                        id: 29,
-                        question: "What does Jane do when she finishes her school duties?",
-                        options: ["Plays sports", "Spends time with friends", "Reads her favorite books", "Helps at home with household chores"],
-                        answer: "Reads her favorite books",
-                        selectedOption: null
-                    }
-                ]
+                id: 22,
+                question: "What does Jack keep in his bedroom?",
+                options: ["Books", "Headphones", "Guitar", "None of the above"],
+                answer: "Guitar",
+                selectedOption: null
+            },
+            {
+                id: 23,
+                question: "What does Samantha borrow from Jack?",
+                options: ["Books", "Guitar", "Headphones", "None of the above"],
+                answer: "Headphones",
+                selectedOption: null
             }
+
+
+        ],
+
+        paragraphInterpretation2: [
+
+            {
+                id: 25,
+                question: "What does Jane do after finishing her homework?",
+                options: ["Listen to music", "Play video games", "Read her favorite books", "Watch television"],
+                answer: "Read her favorite books",
+                selectedOption: null
+            },
+            {
+                id: 26,
+                question: "Why does Jane believe reading is important?",
+                options: ["Because it helps her socialize", "Because it allows her to improve her athletic skills", "Because it helps her relax and improves her vocabulary and comprehension skills", "Because it gives her more free time"],
+                answer: "Because it helps her relax and improves her vocabulary and comprehension skills",
+                selectedOption: null
+            },
+            {
+                id: 27,
+                question: "What genres of books does Jane prefer?",
+                options: ["Mystery and crime novels", "Science fiction and fantasy", "Poetry and drama", "Non-fiction books and autobiographies"],
+                answer: "Science fiction and fantasy",
+                selectedOption: null
+            },
+            {
+                id: 28,
+                question: "What is the main purpose of this paragraph?",
+                options: ["Introduce a character named Jane", "Describe Jane's daily activities", "Discuss the benefits of reading for Jane", "Explain how Jane spends her free time"],
+                answer: "Discuss the benefits of reading for Jane",
+                selectedOption: null
+            },
+            {
+                id: 29,
+                question: "What does Jane do when she finishes her school duties?",
+                options: ["Plays sports", "Spends time with friends", "Reads her favorite books", "Helps at home with household chores"],
+                answer: "Reads her favorite books",
+                selectedOption: null
+            }
+
         ],
 
         audioComprehension: [
             {
-                id: 6,
+                id: 100,
                 question: " What is Julie's favorite color?",
                 options: ["Blue", "Green"],
                 answer: "Blue",
@@ -292,6 +287,8 @@ const Quiz = () => {
             },
         ],
     });
+
+
 
     const handleAnswer = (category, questionId, selectedOption) => {
         const updatedAnswers = { ...answers, [questionId]: selectedOption };
@@ -302,6 +299,17 @@ const Quiz = () => {
             [category]: questions[category].map(question => {
                 if (question.id === questionId) {
                     return { ...question, selectedOption };
+                }
+                if (question.questions) {
+                    return {
+                        ...question,
+                        questions: question.questions.map(subQuestion => {
+                            if (subQuestion.id === questionId) {
+                                return { ...subQuestion, selectedOption };
+                            }
+                            return subQuestion;
+                        }),
+                    };
                 }
                 return question;
             }),
@@ -329,62 +337,6 @@ const Quiz = () => {
         navigate('/results', { state: { score: newScore, percentage: percentage } });
     };
 
-
-    // const renderQuestions = (category, questions) => (
-    //     <div className='category-container'>
-    //         {questions.map(question => (
-    //             <div className='text-center my-20' key={question.id}>
-    //                 {question.audio && (
-    //                     <>
-    //                         <audio src={question.audio} controls preload="auto" className="mx-auto w-[100%]"></audio>
-    //                         <p className='mb-2 py-5'>{question.question}</p>
-    //                     </>
-    //                 )}
-    //                 {question.video && (
-    //                     <div className="relative">
-    //                         <YouTube
-    //                             videoId="cVsyJvxX48A"
-    //                             className="mx-auto w-full"
-    //                             opts={{ width: '100%' }}
-    //                         />
-    //                         <p className="mb-2 py-5">{question.question}</p>
-    //                     </div>
-    //                 )}
-    //                 {!question.audio && !question.video && (
-    //                     <>
-    //                         <img className='w-24 m-auto' src={questionMark} alt="Question Mark" />
-    //                         <p className=' mb-2 px-3'>{question.question}</p>
-    //                     </>
-    //                 )}
-    //                 <div className='flex flex-wrap justify-center'>
-    //                     {category === 'fillInTheBlank' || category === 'sentenceCompletion' ? (
-    //                         <input
-    //                             type="text"
-    //                             className='py-1 px-4 rounded border-2 border-gray-300 mb-2 mr-2'
-    //                             value={question.selectedOption || ''}
-    //                             onChange={(e) => handleInputChange(category, question.id, e)}
-    //                             disabled={submitted}
-    //                         />
-    //                     ) : (
-    //                         question.options.map(option => (
-    //                             <button
-    //                                 key={option}
-    //                                 className={`py-1 px-5 rounded ${question.selectedOption === option ? 'bg-green-500' : 'bg-slangup hover:bg-white hover:text-slangup'} text-white font-bold mb-2 mr-2`}
-    //                                 onClick={() => handleAnswer(category, question.id, option)}
-    //                                 disabled={submitted}
-    //                                 style={{ width: question.options.length > 2 ? '80%' : '50%' }}
-    //                             >
-    //                                 {option}
-    //                             </button>
-    //                         ))
-    //                     )}
-    //                 </div>
-    //             </div>
-    //         ))}
-    //     </div>
-    // );
-
-
     const renderQuestions = (category, questions) => (
         <div className='category-container'>
             {questions.map(question => (
@@ -411,9 +363,7 @@ const Quiz = () => {
                             <p className=' mb-2 px-3'>{question.question}</p>
                         </>
                     )}
-                    {category === 'paragraphInterpretation' && (
-                        <p className='px-7'>{question.passage}</p>
-                    )}
+
                     {!question.questions && (
                         <div className='flex flex-wrap justify-center'>
                             {category === 'fillInTheBlank' || category === 'sentenceCompletion' ? (
@@ -506,7 +456,18 @@ const Quiz = () => {
                 <h2 className='font-semibold text-center px-5 text-xl pt-7 text-white'>Paragraph Interpretation</h2>
                 <img src={reading} alt='' />
             </div>
+            <div className='pt-7'>
+                <p className='mb-2 px-5 text-justify'>Samantha and Jack are siblings. Samantha loves to read, so she has a collection of books in her room. Jack, on the other hand, is passionate about music, and he keeps his guitar in his bedroom. Samantha often borrows Jack's headphones to listen to music while she reads, but she always returns them to him afterward. Both of them cherish their hobbies and respect each other's belongings.</p>
+            </div>
             {renderQuestions("paragraphInterpretation", questions.paragraphInterpretation)}
+
+
+            <div>
+                <p className='mb-2 px-5 text-justify'>Jane is a high school student who loves to read. Every evening, after finishing her homework, she spends at least an hour reading her favorite books. She believes that reading not only helps her relax but also improves her vocabulary and comprehension skills. Jane's favorite genres are fantasy and science fiction, but she also enjoys historical novels from time to time."</p>
+            </div>
+            {renderQuestions("paragraphInterpretation2", questions.paragraphInterpretation2)}
+
+
 
             <div className='bg-slangup'>
                 <h2 className='font-semibold text-center px-5 text-xl pt-7 text-white'>Audio Comprehension</h2>
