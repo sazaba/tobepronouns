@@ -5,6 +5,7 @@ import Quiz from './Quiz';
 import Results from './Results'; // Asegúrate de importar el componente Results.jsx
 import Timeout from './Timeout';
 
+
 function App() {
   return (
     <Router>
@@ -14,6 +15,7 @@ function App() {
           <Route exact path="/" element={<Quiz />} />
           <Route path="/results" element={<Results />} />
           <Route path="/timeout" element={<Timeout />} />
+
         </Routes>
       </div>
     </Router>

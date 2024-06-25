@@ -58,224 +58,195 @@ const Quiz = () => {
 
     const [questions, setQuestions] = useState({
         multipleChoice: [
-
             {
-                id: 1,
-                question: "Choose the correct form of the verb: She ___ (go/goes) to school every day.",
-                options: ["go", "goes", "going", "went"],
-                answer: "goes",
-                selectedOption: null
+                "id": 1,
+                "question": "Choose the correct form of the verb 'to be': She ___ a teacher.",
+                "options": ["is", "am", "are", "be"],
+                "answer": ["is"],
+                "selectedOption": null
             },
             {
-                id: 2,
-                question: "Which sentence uses the correct possessive pronoun?",
-                options: [
-                    "The book is your's.",
-                    "That is hers umbrella.",
-                    "His backpack is over there.",
-                    "Their going to the party tonight."
-                ],
-                answer: "His backpack is over there.",
-                selectedOption: null
+                "id": 2,
+                "question": "Choose the correct pronoun (Male): ___ is my best friend.",
+                "options": ["He", "She", "They", "We"],
+                "answer": ["He"],
+                "selectedOption": null
             },
             {
-                id: 3,
-                question: "Which sentence correctly uses the simple present tense?",
-                options: [
-                    "She is going to the store yesterday.",
-                    "He go to school every morning.",
-                    "They are playing soccer right now.",
-                    "We will went to the park tomorrow."
-                ],
-                answer: "They are playing soccer right now.",
-                selectedOption: null
+                "id": 3,
+                "question": "Choose the correct possessive pronoun: This is ___ book.",
+                "options": ["my", "mine", "I", "me"],
+                "answer": ["my"],
+                "selectedOption": null
             },
             {
-                id: 4,
-                question: "Choose the correct article: He wants to buy ___ new car.",
-                options: ["a", "an", "the", "some"],
-                answer: "a",
-                selectedOption: null
+                "id": 4,
+                "question": "Choose the correct form of the verb 'to be': They ___ at home.",
+                "options": ["is", "am", "are", "be"],
+                "answer": ["are"],
+                "selectedOption": null
             },
             {
-                id: 5,
-                question: "Identify the correct personal pronoun: Sarah and ___ are going to the store.",
-                options: ["I", "me", "my", "mine"],
-                answer: "me",
-                selectedOption: null
-            },
-            // Más preguntas de multiple choice...
-        ],
+                "id": 5,
+                "question": "Choose the correct pronoun: ___ are going to the store.",
+                "options": ["He", "I", "We", "She"],
+                "answer": ["We"],
+                "selectedOption": null
+            }
+        ]
+        ,
         fillInTheBlank: [
-
             {
-                id: 6,
-                question: "They ___ (play) soccer every Saturday.",
-                options: ["play", "plays"],
-                answer: ["play", "Play"],
-                selectedOption: null
+                "id": 6,
+                "question": "I ___ happy to see you.",
+                "options": [],
+                "answer": ["am", "AM", "Am"],
+                "selectedOption": null
             },
             {
-                id: 7,
-                question: "My dog always chews ___ (his/him) bone in the evening.",
-                options: ["his", "him"],
-                answer: ["his", "His"],
-                selectedOption: null
+                "id": 7,
+                "question": "They ___ my friends.",
+                "options": [],
+                "answer": ["are", "Are", "ARE"],
+                "selectedOption": null
             },
             {
-                id: 8,
-                question: "We went to the beach ___ (yesterday/ago).",
-                options: ["yesterday", "ago"],
-                answer: ["yesterday", "Yesterday"],
-                selectedOption: null
+                "id": 8,
+                "question": "She ___ not at home.",
+                "options": [],
+                "answer": ["is", "Is", "IS"],
+                "selectedOption": null
             },
             {
-                id: 9,
-                question: "She put ___ (a/an) orange on the table.",
-                options: ["a", "an"],
-                answer: ["an", "An"],
-                selectedOption: null
+                "id": 9,
+                "question": "We ___ ready to go.",
+                "options": [],
+                "answer": ["are", "Are", "ARE"],
+                "selectedOption": null
             },
             {
-                id: 10,
-                question: "___ (He/Him) and his sister like to swim.",
-                options: ["He", "Him"],
-                answer: ["He", "he"],
-                selectedOption: null
-            },
-        ],
+                "id": 10,
+                "question": "He ___ my brother.",
+                "options": [],
+                "answer": ["is", "Is", "IS"],
+                "selectedOption": null
+            }
+        ]
+        ,
         errorIdentification: [
             {
-                id: 11,
-                question: "She don't like to eat vegetables.",
-                options: ["Don’t", "Like", "Eat"],
-                answer: "Don’t",
-                selectedOption: null
+                "id": 11,
+                "question": "They is going to the park.",
+                "options": ["They", "is", "going", "to"],
+                "answer": ["is"],
+                "selectedOption": null
             },
             {
-                id: 12,
-                question: "John and his's dog went for a walk yesterday.",
-                options: ["Went", "His's", "Walk"],
-                answer: "His's",
-                selectedOption: null
+                "id": 12,
+                "question": "She are a doctor.",
+                "options": ["she", "are", "a", "doctor"],
+                "answer": ["are"],
+                "selectedOption": null
             },
             {
-                id: 13,
-                question: "We go to the beach on every Mondays.",
-                options: ["On every Monday", "We go to", "Mondays"],
-                answer: "On every Monday",
-                selectedOption: null
+                "id": 13,
+                "question": "I am happy to see they.",
+                "options": ["I", "am", "happy", "they"],
+                "answer": ["they"],
+                "selectedOption": null
             },
             {
-                id: 14,
-                question: "Can you pass me an pen, please?",
-                options: ["Can", "Pass me", "An"],
-                answer: "An",
-                selectedOption: null
+                "id": 14,
+                "question": "You is my friend.",
+                "options": ["You", "is", "my", "friend"],
+                "answer": ["is"],
+                "selectedOption": null
             },
             {
-                id: 15,
-                question: "Her are going to the movie tonight.",
-                options: ["Are", "Her", "Going"],
-                answer: "Her",
-                selectedOption: null
-            },
-        ],
+                "id": 15,
+                "question": "This is hers book.",
+                "options": ["this", "is", "hers", "book"],
+                "answer": ["hers"],
+                "selectedOption": null
+            }
+        ]
+        ,
         sentenceCompletion: [
             {
-                id: 16,
-                question: "Sarah ___ (to like) ice cream.",
-                options: ["likes", "liking"],
-                answer: ["likes", "Likes"],
-                selectedOption: null
+                "id": 16,
+                "question": "___ (Male) has a dog.",
+                "options": ["He", "She"],
+                "answer": ["He", "he", "HE"],
+                "selectedOption": null
             },
             {
-                id: 17,
-                question: "We ___ (to be) at the park yesterday.",
-                options: ["were", "was"],
-                answer: ["were", "Were"],
-                selectedOption: null
+                "id": 17,
+                "question": "___ (Them) are going to the cinema.",
+                "options": ["They", "We"],
+                "answer": ["They", "They", "THEY"],
+                "selectedOption": null
             },
             {
-                id: 18,
-                question: "She ___ (to have) a red bike.",
-                options: ["has", "have"],
-                answer: ["has", "Has"],
-                selectedOption: null
+                "id": 18,
+                "question": "___ (Me) am very tired.",
+                "options": ["I", "You"],
+                "answer": ["I", "i"],
+                "selectedOption": null
             },
             {
-                id: 19,
-                question: "They ___ (to go) to school every day.",
-                options: ["go", "goes"],
-                answer: ["go", "Go"],
-                selectedOption: null
+                "id": 19,
+                "question": "___ (She/He) is my sister.",
+                "options": ["She", "He"],
+                "answer": ["She", "she", "SHE"],
+                "selectedOption": null
             },
-        ],
+            {
+                "id": 20,
+                "question": "___ (Us) are friends.",
+                "options": ["We", "They"],
+                "answer": ["We", "WE", "we"],
+                "selectedOption": null
+            }
+        ]
+        ,
         paragraphInterpretation: [
             {
-                id: 21,
-                question: "Who has a collection of books in their room?",
-                options: ["Samantha", "Jack", "Both", "Neither"],
-                answer: "Samantha",
-                selectedOption: null
+                "id": 21,
+                "question": "Who is ten years old?",
+                "options": ["Anna", "Tom", "Lucy", "John"],
+                "answer": ["Tom"],
+                "selectedOption": null
             },
             {
-                id: 22,
-                question: "What does Jack keep in his bedroom?",
-                options: ["Books", "Headphones", "Guitar", "None of the above"],
-                answer: "Guitar",
-                selectedOption: null
+                "id": 22,
+                "question": "What is the name of Anna's cat?",
+                "options": ["Tom", "Lucy", "Whiskers", "John"],
+                "answer": ["Whiskers"],
+                "selectedOption": null
             },
             {
-                id: 23,
-                question: "What does Samantha borrow from Jack?",
-                options: ["Books", "Guitar", "Headphones", "None of the above"],
-                answer: "Headphones",
-                selectedOption: null
+                "id": 23,
+                "question": "How old is Lucy?",
+                "options": ["Five", "Ten", "Seven", "Three"],
+                "answer": ["Five"],
+                "selectedOption": null
+            },
+            {
+                "id": 24,
+                "question": "What is the name of Anna's mother?",
+                "options": ["Anna", "Mary", "Lucy", "Whiskers"],
+                "answer": ["Mary"],
+                "selectedOption": null
+            },
+            {
+                "id": 25,
+                "question": "Where does Anna live?",
+                "options": ["In a big house", "In a small house", "In an apartment", "In a city"],
+                "answer": ["In a small house"],
+                "selectedOption": null
             }
-
-
-        ],
-
-        paragraphInterpretation2: [
-
-            {
-                id: 25,
-                question: "What does Jane do after finishing her homework?",
-                options: ["Listen to music", "Play video games", "Read her favorite books", "Watch television"],
-                answer: "Read her favorite books",
-                selectedOption: null
-            },
-            {
-                id: 26,
-                question: "Why does Jane believe reading is important?",
-                options: ["Because it helps her socialize", "Because it allows her to improve her athletic skills", "Because it helps her relax and improves her vocabulary and comprehension skills", "Because it gives her more free time"],
-                answer: "Because it helps her relax and improves her vocabulary and comprehension skills",
-                selectedOption: null
-            },
-            {
-                id: 27,
-                question: "What genres of books does Jane prefer?",
-                options: ["Mystery and crime novels", "Science fiction and fantasy", "Poetry and drama", "Non-fiction books and autobiographies"],
-                answer: "Science fiction and fantasy",
-                selectedOption: null
-            },
-            {
-                id: 28,
-                question: "What is the main purpose of this paragraph?",
-                options: ["Introduce a character named Jane", "Describe Jane's daily activities", "Discuss the benefits of reading for Jane", "Explain how Jane spends her free time"],
-                answer: "Discuss the benefits of reading for Jane",
-                selectedOption: null
-            },
-            {
-                id: 29,
-                question: "What does Jane do when she finishes her school duties?",
-                options: ["Plays sports", "Spends time with friends", "Reads her favorite books", "Helps at home with household chores"],
-                answer: "Reads her favorite books",
-                selectedOption: null
-            }
-
-        ],
+        ]
+        ,
 
         audioComprehension: [
             {
@@ -458,23 +429,16 @@ const Quiz = () => {
                 <img className='w-[150px]' src={reading} alt='' />
             </div>
             <div className='pt-7 '>
-                <p className='mb-2 px-5 text-justify font-medium'>Samantha and Jack are siblings. Samantha loves to read, so she has a collection of books in her room. Jack, on the other hand, is passionate about music, and he keeps his guitar in his bedroom. Samantha often borrows Jack's headphones to listen to music while she reads, but she always returns them to him afterward. Both of them cherish their hobbies and respect each other's belongings.</p>
+                <p className='mb-2 px-10 text-justify font-light text-gray-700'>My name is Anna. I am a student. I have a brother and a sister. My brother's name is Tom. He is ten years old. My sister's name is Lucy. She is five years old. We have a cat. Its name is Whiskers. My parents are very kind. My father's name is John and my mother's name is Mary. We live in a small house. Our house is very cozy. I love my family.</p>
             </div>
             {renderQuestions("paragraphInterpretation", questions.paragraphInterpretation)}
 
 
-            <div>
-                <p className='mb-2 px-5 text-justify font-medium'>Jane is a high school student who loves to read. Every evening, after finishing her homework, she spends at least an hour reading her favorite books. She believes that reading not only helps her relax but also improves her vocabulary and comprehension skills. Jane's favorite genres are fantasy and science fiction, but she also enjoys historical novels from time to time."</p>
-            </div>
-            {renderQuestions("paragraphInterpretation2", questions.paragraphInterpretation2)}
-
-
-
-            <div className='bg-slangup w-[100%] flex flex-col items-center'>
+            {/* <div className='bg-slangup w-[100%] flex flex-col items-center'>
                 <h2 className='font-semibold text-center px-5 text-xl pt-7 text-white'>Audio Comprehension</h2>
                 <img className='w-[150px]' src={acomprehension} alt='' />
             </div>
-            {renderQuestions("audioComprehension", questions.audioComprehension)}
+            {renderQuestions("audioComprehension", questions.audioComprehension)} */}
 
             <button onClick={handleSubmit} className=' bg-green-500 hover:bg-white hover:text-slangup text-white font-bold py-2 px-4 rounded mx-auto 
                 w-[80%]' disabled={submitted}>
