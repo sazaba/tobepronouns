@@ -183,7 +183,7 @@ const Quiz = () => {
                 "id": 17,
                 "question": "___ (Them) are going to the cinema.",
                 "options": ["They", "We"],
-                "answer": ["They", "They", "THEY"],
+                "answer": ["They", "they", "THEY"],
                 "selectedOption": null
             },
             {
