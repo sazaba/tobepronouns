@@ -248,16 +248,16 @@ const Quiz = () => {
         ]
         ,
 
-        audioComprehension: [
-            {
-                id: 100,
-                question: " What is Julie's favorite color?",
-                options: ["Blue", "Green"],
-                answer: "Blue",
-                selectedOption: null,
-                audio: julie
-            },
-        ],
+        // audioComprehension: [
+        //     {
+        //         id: 100,
+        //         question: " What is Julie's favorite color?",
+        //         options: ["Blue", "Green"],
+        //         answer: "Blue",
+        //         selectedOption: null,
+        //         audio: julie
+        //     },
+        // ],
     });
 
 
